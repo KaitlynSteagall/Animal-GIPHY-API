@@ -1,20 +1,28 @@
 // array of animals that load on page startup. User input will be pushed into this array.
-var animalArray = ["ferret", "dog", "cat", "fish", "otter", "tiger"];
+var topics = ["ferret", "dog", "cat", "fish", "otter", "tiger"];
 
 //function to display the buttons in the array
 function displayButton() {
+  //
   $("#animalButtons").empty();
-  for (var i = 0; i < animalArray.length; i++) {
-    var button = $("<button class='btn mr-2'>").attr("data-animal", animalArray[i]).addClass("animalButton").text(animalArray[i]);
+  //loop through the array
+  for (var i = 0; i < topics.length; i++) {
+    //create a var for a button that creates a button, attr, class, and text on the button for the animal on that iteration in the loop
+    var button = $("<button class='btn mr-2'>").attr("data-animal", topics[i]).addClass("animalButton").text(topics[i]);
+    //append the button to the document in the animalButtons id
     $("#animalButtons").append(button);
   }
 }
 
 // On click event for when "submit" is clicked: add user input to the array(which will then be displayed using)
-$("#addAnimal").on("click", function(event) {
+$("#addAnimal").on("click", function (event) {
+  //
   event.preventDefault();
+  //var called animal that will take the val, trim the val, and lower case the val of the textbox under id animal in the HTML file
   var animal = $("#animal").val().trim().toLowerCase();
-  animalArray.push(animal);
+  //push vaule from text box into the array
+  topics.push(animal);
+  //refer to function that creates a button so new button will show with what the user entered
   displayButton();
 });
 
@@ -27,9 +35,10 @@ function displayAnimalGIF() {
     url: queryURL,
     method: "GET"
   }).then(function (response) {
-      var results = response.data;
+    var results = response.data;
 
-      for (var i = 0; i < results.length; i++){
+    for (var i = 0; i < results.length; i++) {
+
       var GIF = $("<div class='float-left mr-3'>");
       var pTag = $("<p>").text("Rating: " + results[i].rating)
       var animalImg = $("<img class='mb-5'>").attr("src", results[i].images.fixed_height.url);
@@ -37,8 +46,8 @@ function displayAnimalGIF() {
       GIF.append(pTag);
       GIF.append(animalImg);
       $("#animalGIF").prepend(GIF);
-      }
-    });
+    }
+  });
 };
 
 
