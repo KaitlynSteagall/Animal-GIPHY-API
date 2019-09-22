@@ -1,5 +1,5 @@
 // array of animals that load on page startup. User input will be pushed into this array.
-var topics = ["ferret", "dog", "cat", "fish", "otter", "tiger"];
+var topics = ["ferret", "puppy", "kitten", "fish", "otter", "tiger"];
 
 //function to display the buttons in the array
 function displayButton() {
