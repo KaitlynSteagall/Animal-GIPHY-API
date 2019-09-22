@@ -8,7 +8,7 @@ function displayButton() {
   //loop through the array
   for (var i = 0; i < topics.length; i++) {
     //create a var for a button that creates a button, attr, class, and text on the button for the animal on that iteration in the loop
-    var button = $("<button class='btn mr-2'>").attr("data-animal", topics[i]).addClass("animalButton").text(topics[i]);
+    var button = $("<button class='btn mr-2 mb-2'>").attr("data-animal", topics[i]).addClass("animalButton").text(topics[i]);
     //append the button to the document in the animalButtons id
     $("#animalButtons").append(button);
   }
@@ -39,7 +39,7 @@ function displayAnimalGIF() {
 
     for (var i = 0; i < results.length; i++) {
 
-      var GIF = $("<div class='float-left mr-3'>");
+      var GIF = $("<div class='float-left mr-5'>");
       var pTag = $("<p>").text("Rating: " + results[i].rating)
       var animalImg = $("<img class='mb-5'>").attr("src", results[i].images.fixed_height.url);
 
