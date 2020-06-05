@@ -39,12 +39,12 @@ function displayAnimalGIF() {
 
     for (var i = 0; i < results.length; i++) {
 
-      var GIF = $("<div class='float-left mr-5'>");
-      var pTag = $("<p>").text("Rating: " + results[i].rating)
-      var animalImg = $("<img class='mb-5'>").attr("src", results[i].images.fixed_height.url);
+      var GIF = $("<div class='card float-left my-3 mr-5'>");
+      var pTag = $("<p class='my-2 pl-3'>").text("Rating: " + results[i].rating)
+      var animalImg = $("<img class='mx-3 mt-3'>").attr("src", results[i].images.fixed_height.url);
 
-      GIF.append(pTag);
       GIF.append(animalImg);
+      GIF.append(pTag);
       $("#animalGIF").prepend(GIF);
     }
   });
